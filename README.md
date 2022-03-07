@@ -1,7 +1,7 @@
 # Slim Framework 4 JWT Auth Example
 
 ## Requires
-* php: >=7.2
+* php: >=8.1
 * codes50/validation
 * firebase/php-jwt
 * tuupola/slim-jwt-auth
