@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Application\Actions\Auth;
 
 use App\Domain\User\User;
+use Codes50\Core\DefaultPlugins;
 use Firebase\JWT\JWT;
 use Psr\Http\Message\ResponseInterface as Response;
 use Codes50\Validator;
@@ -25,14 +26,14 @@ class CreateTokenAuthAction extends AuthAction
 
         $validation = Validator::make($credentials, [
             "username" => [
-                Validator::ATTR_TYPE => Validator::TYPE_STRING,
-                Validator::ATTR_REQUIRED => true,
-                Validator::ATTR_MAX_LENGTH => 255,
-                Validator::ATTR_MIN_LENGTH => 3
+                DefaultPlugins::ATTR_TYPE => DefaultPlugins::TYPE_STRING,
+                DefaultPlugins::ATTR_REQUIRED => true,
+                DefaultPlugins::ATTR_MAX_LENGTH => 255,
+                DefaultPlugins::ATTR_MIN_LENGTH => 3
             ],
             "password" => [
-                Validator::ATTR_TYPE => Validator::TYPE_STRING,
-                Validator::ATTR_REQUIRED => true
+                DefaultPlugins::ATTR_TYPE => DefaultPlugins::TYPE_STRING,
+                DefaultPlugins::ATTR_REQUIRED => true
             ]
         ]);
 

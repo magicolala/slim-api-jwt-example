@@ -27,15 +27,16 @@ class ShutdownHandler
     /**
      * ShutdownHandler constructor.
      *
-     * @param Request       $request
+     * @param Request $request
      * @param $errorHandler $errorHandler
-     * @param bool          $displayErrorDetails
+     * @param bool $displayErrorDetails
      */
     public function __construct(
-        Request $request,
+        Request          $request,
         HttpErrorHandler $errorHandler,
-        bool $displayErrorDetails
-    ) {
+        bool             $displayErrorDetails
+    )
+    {
         $this->request = $request;
         $this->errorHandler = $errorHandler;
         $this->displayErrorDetails = $displayErrorDetails;

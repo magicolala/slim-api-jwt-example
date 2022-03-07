@@ -6,19 +6,21 @@ namespace App\Infrastructure\Persistence\User;
 use App\Domain\User\User;
 use App\Domain\User\UserNotFoundException;
 use App\Domain\User\UserRepository;
+use JetBrains\PhpStorm\Pure;
 
 class InMemoryUserRepository implements UserRepository
 {
     /**
      * @var User[]
      */
-    private $users;
+    private array $users;
 
     /**
      * InMemoryUserRepository constructor.
      *
      * @param array|null $users
      */
+    #[Pure]
     public function __construct(array $users = null)
     {
         $this->users = $users ?? [

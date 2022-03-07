@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Application\Actions;
 
 use JsonSerializable;
+use ReturnTypeWillChange;
 
 class ActionError implements JsonSerializable
 {
@@ -76,6 +77,7 @@ class ActionError implements JsonSerializable
     /**
      * @return array
      */
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $payload = [

@@ -44,6 +44,7 @@ class JwtAuthenticationMiddleware implements Middleware
                 $token = $arguments["decoded"];
                 $data = $token["data"] ?? false;
                 $request = $request->withAttribute("user", $data);
+
                 return $request;
             }
         ]);

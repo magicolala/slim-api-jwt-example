@@ -15,6 +15,6 @@ return function (ContainerBuilder $containerBuilder) {
                 'level' => Logger::DEBUG,
             ],
         ],
-        'secret_key' => 'TabbZkk3tyqPMShFca8ne7uTbbYj22X9' // randomkeygen.com
+        'secret_key' => 'eUTbDUfcPZQZNWxKQEG5zLskBPgTA7nI' // randomkeygen.com
     ]);
 };

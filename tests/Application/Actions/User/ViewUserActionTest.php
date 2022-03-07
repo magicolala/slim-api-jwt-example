@@ -22,7 +22,7 @@ class ViewUserActionTest extends TestCase
         /** @var Container $container */
         $container = $app->getContainer();
 
-        $user = new User(1, 'bill.gates', 'Bill', 'Gates');
+        $user = new User(1, 'bill.gates', '123456', 'Bill', 'Gates');
 
         $userRepositoryProphecy = $this->prophesize(UserRepository::class);
         $userRepositoryProphecy
@@ -35,7 +35,7 @@ class ViewUserActionTest extends TestCase
         $request = $this->createRequest('GET', '/users/1');
         $response = $app->handle($request);
 
-        $payload = (string) $response->getBody();
+        $payload = (string)$response->getBody();
         $expectedPayload = new ActionPayload(200, $user);
         $serializedPayload = json_encode($expectedPayload, JSON_PRETTY_PRINT);
 
@@ -50,7 +50,7 @@ class ViewUserActionTest extends TestCase
         $responseFactory = $app->getResponseFactory();
 
         $errorHandler = new HttpErrorHandler($callableResolver, $responseFactory);
-        $errorMiddleware = new ErrorMiddleware($callableResolver, $responseFactory, true, false ,false);
+        $errorMiddleware = new ErrorMiddleware($callableResolver, $responseFactory, true, false, false);
         $errorMiddleware->setDefaultErrorHandler($errorHandler);
 
         $app->add($errorMiddleware);
@@ -69,7 +69,7 @@ class ViewUserActionTest extends TestCase
         $request = $this->createRequest('GET', '/users/1');
         $response = $app->handle($request);
 
-        $payload = (string) $response->getBody();
+        $payload = (string)$response->getBody();
         $expectedError = new ActionError(ActionError::RESOURCE_NOT_FOUND, 'The user you requested does not exist.');
         $expectedPayload = new ActionPayload(404, null, $expectedError);
         $serializedPayload = json_encode($expectedPayload, JSON_PRETTY_PRINT);

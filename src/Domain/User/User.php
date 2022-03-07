@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Domain\User;
 
 use JsonSerializable;
+use ReturnTypeWillChange;
 
 class User implements JsonSerializable
 {
@@ -91,6 +92,7 @@ class User implements JsonSerializable
     /**
      * @return array
      */
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return [
